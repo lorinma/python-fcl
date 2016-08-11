@@ -3,6 +3,7 @@ import sys
 from distutils.core import Extension, setup
 from Cython.Distutils import build_ext
 
+import numpy
 platform_supported = False
 for prefix in ['darwin', 'linux', 'bsd']:
     if prefix in sys.platform:
@@ -10,6 +11,7 @@ for prefix in ['darwin', 'linux', 'bsd']:
         include_dirs = [
             '/usr/include',
             '/usr/local/include',
+            numpy.get_include(),
         ]
         lib_dirs = [
             '/usr/lib',
